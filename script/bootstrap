@@ -4,7 +4,12 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  uname -a
+  export GOPATH="$shome"
+  go get github.com/yudai/gotty
+  pushd "$shome/src/github.com/yudai/gotty"
+  git checkout -f release-1.0
+  popd
+  go get github.com/yudai/gotty
 }
 
 main "$@"
