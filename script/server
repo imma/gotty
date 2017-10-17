@@ -9,7 +9,7 @@ function main {
   fi
 
   shift
-  exec gotty -w --once -a 127.0.0.1 -p 31337 docker run -ti ubuntu:xenial
+  exec gotty "$@"
 }
 
 main "$@"
